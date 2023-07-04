@@ -5,6 +5,7 @@ import COLORS from "../constants/Colors";
 import FONTS from "../constants/Fonts";
 import GenreCard from "../components/GenreCard";
 import ItemSeparator from "../components/ItemSeparator";
+import MovieCard from "../components/MovieCard";
 
 const Genres = [
     "All",
@@ -58,6 +59,21 @@ const HomeScreen = () => {
                   onPress={(genreName) => setActiveGenre(genreName)}
                   />
           }
+        />
+      </View>
+
+      <View>
+        <FlatList
+          data={Genres}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          ListHeaderComponent={() => <ItemSeparator width={20} />}
+          ListFooterComponent={() => <ItemSeparator width={20} />}
+          keyExtractor={(item) => item}
+          ItemSeparatorComponent={() => <ItemSeparator width={20} />}
+          renderItem={({ item }) => (<MovieCard genreName={item}
+          />
+          )}
         />
       </View>
     </ScrollView>
