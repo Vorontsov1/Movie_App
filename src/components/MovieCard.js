@@ -1,5 +1,12 @@
 import React, {useState} from "react";
-import { View, Text, StyleSheet, TouchableOpacity, Image, TouchableNativeFeedback } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  Image,
+  TouchableNativeFeedback,
+} from "react-native";
 import COLORS from "../constants/Colors";
 import FONTS from "../constants/Fonts";
 import IMAGES from "../constants/Images";
@@ -22,14 +29,14 @@ const [liked, setLiked] = useState(false)
           />
           <Text style={styles.imdbRating}>9.4</Text>
         </View>
-        <TouchableNativeFeedback onPress={() => setLiked(!liked)}>
+        <TouchableOpacity onPress={() => setLiked(!liked)}>
           <Ionicons
             name={liked ? "heart" : "heart-outline"}
             size={25}
             color={liked ? COLORS.HEART : COLORS.WHITE}
-            style={{ position: "absolute", bottom: 10, left: 10 }}
+            style={{ position: "absolute", top: 275, left: 10 }}
           />
-        </TouchableNativeFeedback>
+        </TouchableOpacity>
       </View>
       <View>
         <Text style={styles.movieTitle} numberOfLines={3}>
